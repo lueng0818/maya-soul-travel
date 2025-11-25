@@ -10,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 IMG_DIR  = os.path.join(BASE_DIR, "images")
 
-# ────────────── Travel Data Dictionary (內建旅遊資料庫) ──────────────
+# ────────────── 1. Travel Data (圖騰旅遊建議) ──────────────
 travel_data = {
     "紅龍": {
         "theme": "尋根溯源，連結古老記憶與大地之母。",
@@ -174,6 +174,88 @@ travel_data = {
     }
 }
 
+# ────────────── 2. Tone Data (調性資料庫) ──────────────
+tone_data = {
+    1: {
+        "name": "磁性的 (Magnetic)",
+        "keyword": "目的、合一、吸引",
+        "focus": "「這次旅行的『目的』是什麼？」磁性調性的人是天生的發起者。他們最在乎的是確立這次旅行的核心目的——是為了放鬆？探索？還是慶祝？一旦目的確立，所有行程都會被吸引而來。",
+        "summary": "先告訴我「為何而去」，我們再談「去向何方」。"
+    },
+    2: {
+        "name": "月亮的 (Lunar)",
+        "keyword": "二元、挑戰、穩定",
+        "focus": "「有哪些『選擇』？潛在的『挑戰』是什麼？」他們會仔細權衡各種選項的利弊（如山vs海、飯店vs民宿），並預先設想可能遇到的挑戰，從中找到一個最穩定、最安心的方案。",
+        "summary": "凡事都有Plan B，讓我評估一下哪個最好。"
+    },
+    3: {
+        "name": "電力的 (Electric)",
+        "keyword": "服務、啟動、連結",
+        "focus": "「有哪些好玩的『活動』？可以跟誰『連結』？」他們關心旅行中「要做什麼」，渴望透過活動讓旅程充滿活力。非常在意與旅伴、當地人的互動。一場充滿動態體驗和人際交流的旅行最能讓他們滿足。",
+        "summary": "別光坐著，我們一起去做點什麼有趣的事吧！"
+    },
+    4: {
+        "name": "自我存在的 (Self-Existing)",
+        "keyword": "形式、定義、測量",
+        "focus": "「具體的『行程』和『架構』是什麼？」他們需要清晰的框架。最在意旅行是否有一個清晰、合理的行程表（幾點出發？路線怎麼走？）。結構分明的計畫能帶來極大的安全感。",
+        "summary": "請給我一份詳細的行程表，讓我心裡有數。"
+    },
+    5: {
+        "name": "泛音的 (Overtone)",
+        "keyword": "賦予力量、光芒、指令",
+        "focus": "「如何讓這趟旅行發揮『最大價值』？」他們是資源整合者。在乎如何配置資源（時間、金錢）以獲得最精彩的體驗。會聚焦在「必去」景點、「必吃」餐廳，確保自己擁有最好的狀態。",
+        "summary": "我們要做就做最好的，把核心資源用在刀口上。"
+    },
+    6: {
+        "name": "韻律的 (Rhythmic)",
+        "keyword": "平衡、組織、平等",
+        "focus": "「行程的『節奏』是否舒適、平衡？」他們非常在意旅行的「流動感」。過於緊湊或鬆散都會不適。關心如何在活動與休息、觀光與深度體驗之間找到和諧的節奏。",
+        "summary": "別太趕也別太懶，我們找到一個舒服的節奏慢慢走。"
+    },
+    7: {
+        "name": "共鳴的 (Resonant)",
+        "keyword": "調頻、啟發、通道",
+        "focus": "「這裡的『感覺』對嗎？有沒有『靈感』？」他們透過「感覺」互動。地點是否能激發靈感、是否「對頻」，遠比計畫重要。可能會因為突如其來的靈感而改變行程，只為追隨指引。",
+        "summary": "計畫不重要，跟著我的「感覺」走就對了。"
+    },
+    8: {
+        "name": "銀河的 (Galactic)",
+        "keyword": "和諧、整合、塑造",
+        "focus": "「這次旅行是否符合我的『信念』和『價值觀』？」他們追求知行合一。在乎選擇是否與價值觀相符（如環保旅行、支持小農）。希望旅行不僅是玩樂，更是一次信念的實踐。",
+        "summary": "我希望這趟旅行，能體現我所相信的生活方式。"
+    },
+    9: {
+        "name": "太陽的 (Solar)",
+        "keyword": "意圖、脈動、實現",
+        "focus": "「如何朝著『核心目標』大步邁進？」一旦鎖定目標（如：一定要看到極光），就會全力以赴。在意如何排除萬難，聚焦能量，確保最終目標得以實現。",
+        "summary": "不用管細節，我們全力衝向那個最終目標！"
+    },
+    10: {
+        "name": "行星的 (Planetary)",
+        "keyword": "顯化、完美、產生",
+        "focus": "「計畫是否被『完美呈現』了？」他們享受將藍圖完美顯化。在意計畫的執行度與完成度。當預定的餐廳、飯店、景點都如預期般完美展現時，會獲得巨大滿足。",
+        "summary": "看到一切都照計畫完美發生，真是太棒了！"
+    },
+    11: {
+        "name": "光譜的 (Spectral)",
+        "keyword": "釋放、消解、解放",
+        "focus": "「我如何才能從日常中『解放』出來？」渴望打破框架。旅行是擺脫束縛、徹底解放的過程。不在意行程被打亂，甚至享受「意外」。追求完全的自由與輕鬆。",
+        "summary": "把計畫丟掉吧！我只想徹底放飛自我。"
+    },
+    12: {
+        "name": "水晶的 (Crystal)",
+        "keyword": "合作、奉獻、普及",
+        "focus": "「這次旅行可以和『大家』分享什麼？」樂於合作與分享。非常在意旅伴間的和諧。旅程結束後，喜歡整理照片、寫遊記，熱情地將美好體驗分享給更多人。",
+        "summary": "這趟旅行太棒了，我得趕快整理出來分享給大家！"
+    },
+    13: {
+        "name": "宇宙的 (Cosmic)",
+        "keyword": "存在、忍耐、超越",
+        "focus": "「如何全然地『活在當下』？」能夠超越細節，安住當下。無論順境逆境，都能泰然處之。最在意全然沉浸在旅行的每一個片刻，擴展生命的視野。",
+        "summary": "無論發生什麼，都是最好的安排，享受當下就好。"
+    }
+}
+
 
 # ────────────── Page Config & CSS ──────────────
 st.set_page_config(page_title="Maya 靈魂旅程指南", layout="wide")
@@ -213,7 +295,6 @@ try:
     kin_start   = pd.read_csv(os.path.join(DATA_DIR, "kin_start_year.csv"), index_col="年份")["起始KIN"].to_dict()
     month_accum = pd.read_csv(os.path.join(DATA_DIR, "month_day_accum.csv"),   index_col="月份")["累積天數"].to_dict()
     kin_basic   = pd.read_csv(os.path.join(DATA_DIR, "kin_basic_info.csv"))
-    # 已移除自我探索資料讀取
 except Exception as e:
     st.error(f"❌ 資料載入失敗：{e}")
     st.stop()
@@ -225,7 +306,7 @@ month = st.sidebar.selectbox("月份", list(range(1,13)), index=0)
 max_day = calendar.monthrange(year, month)[1]
 day = st.sidebar.slider("日期", 1, max_day, 1)
 
-# ────────────── KIN 計算 ──────────────
+# ────────────── KIN & Tone 計算 ──────────────
 start_kin = kin_start.get(year)
 if start_kin is None:
     st.sidebar.error("⚠️ 此年份無起始 KIN")
@@ -234,16 +315,20 @@ raw = start_kin + month_accum.get(month,0) + day
 mod = raw % 260
 kin = 260 if mod==0 else mod
 
+# 計算調性 (Tone): KIN 除以 13 的餘數，若為 0 則為 13
+tone_number = kin % 13
+if tone_number == 0:
+    tone_number = 13
+
 # ────────────── 顯示基本 KIN 與圖騰 ──────────────
 subset = kin_basic[kin_basic["KIN"]==kin]
 if subset.empty:
     st.error(f"❓ 找不到 KIN {kin} 資料")
     st.stop()
 info = subset.iloc[0]
-totem = info["圖騰"]  # 取得圖騰名稱 (例如: "紅龍")
+totem = info["圖騰"]
 
-# 這裡移除「主印記」文字，讓畫面更聚焦
-st.markdown(f"## 🔢 你的 KIN：{kin} ｜ {totem}", unsafe_allow_html=True)
+st.markdown(f"## 🔢 你的 KIN：{kin} ｜ {totem} (調性 {tone_number})", unsafe_allow_html=True)
 
 col_img, col_desc = st.columns([1, 5])
 with col_img:
@@ -251,17 +336,33 @@ with col_img:
     if os.path.exists(img_file):
         st.image(Image.open(img_file), width=120)
 
-# ────────────── 靈魂旅程建議 ──────────────
+# ────────────── NEW: 調性旅遊建議區塊 ──────────────
 st.markdown("---")
-st.markdown(f"## ✈️ {totem} 的靈魂旅程建議")
+st.markdown(f"## 🎵 調性建議：{tone_data[tone_number]['name']}")
+
+tone_info = tone_data[tone_number]
+
+# 使用兩欄位：左邊關鍵字與總結，右邊詳細重點
+tone_col1, tone_col2 = st.columns([1, 2])
+
+with tone_col1:
+    st.info(f"**🔑 關鍵字：**\n\n{tone_info['keyword']}")
+    st.success(f"**💡 你的旅行格言：**\n\n{tone_info['summary']}")
+
+with tone_col2:
+    with st.container(border=True):
+        st.markdown("**🤔 旅遊在意重點：**")
+        st.write(tone_info['focus'])
+
+# ────────────── 圖騰靈魂旅程建議 ──────────────
+st.markdown("---")
+st.markdown(f"## ✈️ {totem} 的推薦行程")
 
 if totem in travel_data:
     travel_info = travel_data[totem]
     
-    # 顯示旅行主題，使用 info 樣式更吸睛
-    st.info(f"**🗺️ 旅行主題：** {travel_info['theme']}")
+    st.warning(f"**🗺️ 旅行主題：** {travel_info['theme']}")
     
-    # 顯示三個推薦行程
     t_col1, t_col2, t_col3 = st.columns(3)
     cols = [t_col1, t_col2, t_col3]
     
